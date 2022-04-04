@@ -1,0 +1,4 @@
+flask
+jsonlines
+Requests
+python-consul

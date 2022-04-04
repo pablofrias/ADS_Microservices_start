@@ -1,0 +1,5 @@
+flask
+jsonlines
+Requests
+python-consul
+pika
