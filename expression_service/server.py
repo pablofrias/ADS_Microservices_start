@@ -3,15 +3,23 @@ from flask import Flask, jsonify
 import re
 import requests
 import os
+import consul
 
 app = Flask(__name__)
+
+def getDictionaryServiceIP():
+    c = consul.Consul(host='172.17.0.2', port=8500)
+    print(c.health.service('dictionary', passing=True))
+    ip = c.health.service('dictionary', passing=True)[1][0]['Node']['Address']
+    return ip
 
 @app.route('/expression/api/v1.0/sentiment/<string:exp>', methods=['GET'])
 def getSentimentValue(exp):
     if len(exp) == 0: abort(404)
     words = re.split(" ", exp)
     sentiment = 0
-    url = 'http://localhost:5000/dictionary/api/v1.0/words/'
+    ip_address = getDictionaryServiceIP()
+    url = f'http://{ip_address}:5000/dictionary/api/v1.0/words/'
     print("URL de dictionary: " + url)
     
     for word in words:

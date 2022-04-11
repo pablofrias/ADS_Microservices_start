@@ -1,0 +1,9 @@
+{
+    "service": {
+        "name": "expression",
+        "tags": [
+            "rest"
+        ],
+        "port": 5000
+    }
+}
