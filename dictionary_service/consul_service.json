@@ -1,0 +1,9 @@
+{
+    "service": {
+        "name": "dictionary",
+        "tags": [
+            "rest"
+        ],
+        "port": 5000
+    }
+}

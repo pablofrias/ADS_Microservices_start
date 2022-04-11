@@ -7,7 +7,7 @@ RUN mkdir -p /usr/src/app && \
 RUN wget https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh && \
     mv wait-for-it.sh /usr/sbin
 
-RUN wget https://releases.hashicorp.com/consul/1.11.4/consul_1.11.4_linux_amd64.zip
+COPY libs/consul_1.11.4_linux_amd64.zip .
 
 RUN unzip consul_1.11.4_linux_amd64.zip && \
     cp consul /usr/sbin && \
