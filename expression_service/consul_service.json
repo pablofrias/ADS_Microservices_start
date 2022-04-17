@@ -4,6 +4,18 @@
         "tags": [
             "rest"
         ],
-        "port": 5000
+        "port": 8000,
+        "check": {
+            "id": "api",
+            "name": "HTTP API on port 8000",
+            "http": "http://localhost:8000/expression/api/v1.0/health",
+            "tls_server_name": "",
+            "tls_skip_verify": false,
+            "method": "GET",
+            "header": { "Content-Type": ["application/json"] },
+            "body": "{\"method\":\"health\"}",
+            "interval": "10s",
+            "timeout": "1s"
+        }
     }
 }

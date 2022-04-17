@@ -33,6 +33,10 @@ def getSentimentValue(exp):
                     }
                 ])
 
+@app.route('/expression/api/v1.0/health', methods=['GET'])
+def getHealth():
+    return "{\"method\":\"health\"}"
+
 @app.errorhandler(404)
 def not_found(error):
     return jsonify({'error': 'Expression cannot be empty'}), 404
