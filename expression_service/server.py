@@ -8,7 +8,7 @@ import consul
 app = Flask(__name__)
 
 def getDictionaryServiceIP():
-    c = consul.Consul(host='172.17.0.2', port=8500)
+    c = consul.Consul(host='consul', port=8500)
     print(c.health.service('dictionary', passing=True))
     ip = c.health.service('dictionary', passing=True)[1][0]['Node']['Address']
     return ip
