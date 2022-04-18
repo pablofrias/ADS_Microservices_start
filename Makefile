@@ -4,7 +4,7 @@ setup:
 	mkdir -p ./dictionary_service/libs && \
 	mkdir -p ./expression_service/libs && \
 	cp consul_1.11.4_linux_amd64.zip ./dictionary_service/libs && \
-	cp consul_1.11.4_linux_amd64.zip ./expression_service
+	cp consul_1.11.4_linux_amd64.zip ./expression_service/libs
 
 docker-build: setup
 	docker build ./dictionary_service/ --tag dictionary_service && \
